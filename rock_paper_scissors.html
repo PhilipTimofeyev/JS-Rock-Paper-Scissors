@@ -67,19 +67,32 @@
       } else {console.log(result + " won!")}
     }
 
+    function displayScore() {
+      console.log(`Player: ${player_score} \nComputer: ${computer_score}`)
+    }
+
+    function updateScore(winner) {
+      if (winner === 'Player') {
+        player_score += 1
+      } else if (winner === 'Computer') {
+        computer_score += 1
+      }
+    }
+
     function playGame() {
       computer_score = 0
       player_score = 0
 
-      for (let round = 0; round <= 5; round++) {
+      for (let round = 1; round <= 5; round++) {
         console.log(`Round ${round}`);
         winner = playRound(getPlayerChoice(), getComputerChoice());
         displayWinner(winner);
+        updateScore(winner)
+        displayScore()
       }
     }
 
     console.log(playGame())
-    // console.log(determineWinner("rock", "scissors"))
   </script>
 </body>
 </html>

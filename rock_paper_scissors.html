@@ -16,7 +16,7 @@
         if (choice === "rock" || choice === "paper" ||  choice === "scissors") { break}
       }
 
-      return choice
+      return choice;
     }
 
     function getComputerChoice() {
@@ -58,8 +58,7 @@
 
     function playRound(playerSelection, computerSelection) {
       console.log(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
-      winner =  determineWinner(playerSelection, computerSelection)
-      displayWinner(winner)
+      return determineWinner(playerSelection, computerSelection);
     }
 
     function displayWinner(result) {
@@ -73,12 +72,14 @@
       player_score = 0
 
       for (let round = 0; round <= 5; round++) {
-        console.log(`Round ${round}`)
-        playRound(getPlayerChoice(), getComputerChoice());
+        console.log(`Round ${round}`);
+        winner = playRound(getPlayerChoice(), getComputerChoice());
+        displayWinner(winner);
       }
     }
 
     console.log(playGame())
+    // console.log(determineWinner("rock", "scissors"))
   </script>
 </body>
 </html>

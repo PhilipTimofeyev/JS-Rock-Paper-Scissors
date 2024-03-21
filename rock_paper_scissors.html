@@ -38,7 +38,7 @@
       return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
     }
 
-    function determineWinner(player, computer) {
+    function determineRoundWinner(player, computer) {
       if (player === computer) {
         return "Draw"
       } else if (player === "rock" && computer === "paper") {
@@ -58,7 +58,7 @@
 
     function playRound(playerSelection, computerSelection) {
       console.log(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
-      return determineWinner(playerSelection, computerSelection);
+      return determineRoundWinner(playerSelection, computerSelection);
     }
 
     function displayWinner(result) {
@@ -79,20 +79,31 @@
       }
     }
 
+    function determineFinalWinner() {
+      if (computer_score == player_score) {
+        console.log("The game is a draw!")
+      } else if (computer_score > player_score) {
+        console.log("Computer wins the game!")
+      } else {console.log("Player wins the game!")}
+    }
+
     function playGame() {
       computer_score = 0
       player_score = 0
 
-      for (let round = 1; round <= 5; round++) {
+      for (let round = 1; round <= 3; round++) {
         console.log(`Round ${round}`);
-        winner = playRound(getPlayerChoice(), getComputerChoice());
+        let winner = playRound(getPlayerChoice(), getComputerChoice());
         displayWinner(winner);
         updateScore(winner)
         displayScore()
       }
+      
+      determineFinalWinner()
     }
 
-    console.log(playGame())
+    playGame()
+
   </script>
 </body>
 </html>

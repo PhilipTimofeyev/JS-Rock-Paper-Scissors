@@ -57,7 +57,9 @@
     }
 
     function playRound(playerSelection, computerSelection) {
-      return determineWinner(playerSelection, computerSelection)
+      alert(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
+      winner =  determineWinner(playerSelection, computerSelection)
+      alert(winner)
     }
 
     console.log(playRound(getPlayerChoice(), getComputerChoice()))

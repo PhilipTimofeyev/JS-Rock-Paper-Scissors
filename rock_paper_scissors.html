@@ -79,27 +79,35 @@
       }
     }
 
-    function determineFinalWinner() {
+    function determineGameWinner() {
       if (computer_score == player_score) {
-        console.log("The game is a draw!")
+        return "Draw"
       } else if (computer_score > player_score) {
-        console.log("Computer wins the game!")
-      } else {console.log("Player wins the game!")}
+        return "Computer"
+      } else {return "Player"}
     }
+
+    function displayGameWinner(winner) {
+      if (winner === "Draw") {
+        console.log(`${winner}!`)
+      } else {console.log(`${winner} wins the game!`)}
+    }
+
 
     function playGame() {
       computer_score = 0
       player_score = 0
 
-      for (let round = 1; round <= 3; round++) {
+      for (let round = 1; round <= 5; round++) {
         console.log(`Round ${round}`);
-        let winner = playRound(getPlayerChoice(), getComputerChoice());
+        winner = playRound(getPlayerChoice(), getComputerChoice());
         displayWinner(winner);
         updateScore(winner)
         displayScore()
       }
-      
-      determineFinalWinner()
+
+      game_winner = determineGameWinner()
+      displayGameWinner(game_winner)
     }
 
     playGame()

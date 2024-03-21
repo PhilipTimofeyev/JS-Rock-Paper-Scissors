@@ -42,27 +42,38 @@
       if (player === computer) {
         return "Draw!"
       } else if (player === "rock" && computer === "paper") {
-        return "Computer wins!"
+        return "Computer"
       } else if (player === "rock" && computer === "scissors") {
-        return "You win!"
+        return "Player"
       } else if (player === "paper" && computer === "rock") {
-        return "You win!"
+        return "Player"
       } else if (player === "paper" && computer === "scissors") {
-        return "Computer wins!"
+        return "Computer"
       } else if (player === "scissors" && computer === "paper") {
-        return "You win!"
+        return "Player"
       } else if (player === "scissors" && computer === "rock") {
-        return "Computer wins!"
+        return "Computer"
       } else { return "NOOO"}
     }
 
     function playRound(playerSelection, computerSelection) {
-      alert(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
+      console.log(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
       winner =  determineWinner(playerSelection, computerSelection)
-      alert(winner)
+      console.log(winner)
     }
 
-    console.log(playRound(getPlayerChoice(), getComputerChoice()))
+
+    function playGame() {
+      computer_score = 0
+      player_score = 0
+
+      for (let round = 0; round <= 5; round++) {
+        console.log(`Round ${round}`)
+        playRound(getPlayerChoice(), getComputerChoice());
+      }
+    }
+
+    console.log(playGame())
   </script>
 </body>
 </html>

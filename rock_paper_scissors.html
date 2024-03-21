@@ -24,11 +24,11 @@
 
       switch (choice) {
       case 1:
-        return "Rock";
+        return "rock";
       case 2:
-        return "Paper";
+        return "paper";
       case 3:
-        return "Scissors";
+        return "scissors";
       }
     }
 
@@ -53,14 +53,14 @@
         return "You win!"
       } else if (player === "scissors" && computer === "rock") {
         return "Computer wins!"
-      }
+      } else { return "NOOO"}
     }
 
-    // function playRound(playerSelection, computerSelection) {
-    //   player_choice = 
-    // }
+    function playRound(playerSelection, computerSelection) {
+      return determineWinner(playerSelection, computerSelection)
+    }
 
-    console.log(determineWinner("paper", "rock"))
+    console.log(playRound(getPlayerChoice(), getComputerChoice()))
   </script>
 </body>
 </html>

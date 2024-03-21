@@ -40,7 +40,7 @@
 
     function determineWinner(player, computer) {
       if (player === computer) {
-        return "Draw!"
+        return "Draw"
       } else if (player === "rock" && computer === "paper") {
         return "Computer"
       } else if (player === "rock" && computer === "scissors") {
@@ -59,9 +59,14 @@
     function playRound(playerSelection, computerSelection) {
       console.log(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
       winner =  determineWinner(playerSelection, computerSelection)
-      console.log(winner)
+      displayWinner(winner)
     }
 
+    function displayWinner(result) {
+      if (result === "Draw") {
+        console.log(result + "!")
+      } else {console.log(result + " won!")}
+    }
 
     function playGame() {
       computer_score = 0

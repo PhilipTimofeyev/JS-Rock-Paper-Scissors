@@ -6,7 +6,61 @@
 </head>
 <body>
   <script>
-    
+
+    function getPlayerChoice() {
+      let choice;
+
+      while (true) {
+        choice = prompt("Please enter Rock, Paper, or Scissors")
+        choice = choice.toLowerCase()
+        if (choice === "rock" || choice === "paper" ||  choice === "scissors") { break}
+      }
+
+      return choice
+    }
+
+    function getComputerChoice() {
+      choice = getRandomInt(1, 3)
+
+      switch (choice) {
+      case 1:
+        return "Rock";
+      case 2:
+        return "Paper";
+      case 3:
+        return "Scissors";
+      }
+    }
+
+    function getRandomInt(min, max) {
+      const minCeiled = Math.ceil(min);
+      const maxFloored = Math.floor(max);
+      return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled);
+    }
+
+    function determineWinner(player, computer) {
+      if (player === computer) {
+        return "Draw!"
+      } else if (player === "rock" && computer === "paper") {
+        return "Computer wins!"
+      } else if (player === "rock" && computer === "scissors") {
+        return "You win!"
+      } else if (player === "paper" && computer === "rock") {
+        return "You win!"
+      } else if (player === "paper" && computer === "scissors") {
+        return "Computer wins!"
+      } else if (player === "scissors" && computer === "paper") {
+        return "You win!"
+      } else if (player === "scissors" && computer === "rock") {
+        return "Computer wins!"
+      }
+    }
+
+    // function playRound(playerSelection, computerSelection) {
+    //   player_choice = 
+    // }
+
+    console.log(determineWinner("paper", "rock"))
   </script>
 </body>
 </html>

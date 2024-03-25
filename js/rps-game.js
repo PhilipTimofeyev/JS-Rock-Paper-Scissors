@@ -1,16 +1,21 @@
 
   <!-- <script> -->
 
+  const btnRock = document.querySelector("#rock");
+  const btnPaper = document.querySelector("#paper");
+  const btnScissors = document.querySelector("#scissors");
+
+
     function getPlayerChoice() {
-      let choice;
-
-      while (true) {
-        choice = prompt("Please enter Rock, Paper, or Scissors")
-        choice = choice.toLowerCase()
-        if (choice === "rock" || choice === "paper" ||  choice === "scissors") { break}
-      }
-
-      return choice;
+      btnRock.addEventListener('click', () => {
+        playRound('rock', getComputerChoice())
+      })
+      btnPaper.addEventListener('click', () => {
+        playRound('paper', getComputerChoice())
+      })
+      btnScissors.addEventListener('click', () => {
+        playRound('scissors', getComputerChoice())
+      })
     }
 
     function getComputerChoice() {
@@ -33,6 +38,7 @@
     }
 
     function determineRoundWinner(player, computer) {
+      console.log(computer)
       if (player === computer) {
         return "Draw"
       } else if (player === "rock" && computer === "paper") {
@@ -51,8 +57,9 @@
     }
 
     function playRound(playerSelection, computerSelection) {
-      console.log(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
-      return determineRoundWinner(playerSelection, computerSelection);
+      // console.log(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
+      winner = determineRoundWinner(playerSelection, computerSelection);
+      displayWinner(winner)
     }
 
     function displayWinner(result) {
@@ -88,23 +95,27 @@
     }
 
 
-    function playGame() {
-      computer_score = 0
-      player_score = 0
+    // function playGame() {
+    //   computer_score = 0
+    //   player_score = 0
 
-      for (let round = 1; round <= 5; round++) {
-        console.log(`Round ${round}`);
-        winner = playRound(getPlayerChoice(), getComputerChoice());
-        displayWinner(winner);
-        updateScore(winner)
-        displayScore()
-      }
+    //   for (let round = 1; round <= 1; round++) {
+    //     console.log(`Round ${round}`);
+    //     // winner = getPlayerChoice
+    //     winner = playRound(getPlayerChoice(), getComputerChoice());
+    //     displayWinner(winner);
+    //     updateScore(winner)
+    //     displayScore()
+    //   }
 
-      game_winner = determineGameWinner()
-      displayGameWinner(game_winner)
-    }
+    //   game_winner = determineGameWinner()
+    //   displayGameWinner(game_winner)
+    // }
 
-    playGame()
+    // playGame()
+
+    getPlayerChoice()
+
 
   <!-- </script> -->
 

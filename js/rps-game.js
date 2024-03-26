@@ -91,8 +91,12 @@
       updateScore(winner);
       displayScore.textContent = displayAllScore();
 
-      displayGameWinner(determineGameWinner())
-      playAgain()
+      console.log(determineGameWinner())
+
+      if (determineGameWinner()) {
+        displayGameWinner(determineGameWinner());
+        playAgain()
+      }
     }
 
     function updateScore(winner) {
@@ -108,7 +112,11 @@
     }
 
     function determineGameWinner() {
-      return player_score == playTo ? 'Player' : 'Computer'
+      if (player_score == playTo) {
+        return 'Player'
+      } else if (computer_score == playTo) {
+        return 'Computer'
+      } else {null}
     }
 
     function displayGameWinner(winner) {
@@ -118,7 +126,7 @@
     }
 
     function playAgain() {
-      options.insertBefore(btnPlayAgain, btnRock)
+      options.appendChild(btnPlayAgain)
       options.removeChild(btnRock)
       options.removeChild(btnPaper)
       options.removeChild(btnScissors)
@@ -126,14 +134,19 @@
       btnPlayAgain.addEventListener('click', () => {
         resetGame()
       })
+    }
 
       function resetGame() {
         options.appendChild(btnRock);
         options.appendChild(btnPaper);
         options.appendChild(btnScissors);
-        options.removeChild(btnPlayAgain)
+        options.removeChild(btnPlayAgain);
+
+        player_score = 0
+        computer_score = 0
+
+        displayScore.textContent = displayAllScore();
       }
-    }
 
     getPlayerChoice()
 

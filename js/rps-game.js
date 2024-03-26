@@ -1,9 +1,18 @@
 
   <!-- <script> -->
 
-  const btnRock = document.querySelector("#rock");
-  const btnPaper = document.querySelector("#paper");
-  const btnScissors = document.querySelector("#scissors");
+    computer_score = 0
+    player_score = 0
+
+    const container = document.querySelector(".container");
+    
+    const btnRock = document.querySelector("#rock");
+    const btnPaper = document.querySelector("#paper");
+    const btnScissors = document.querySelector("#scissors");
+
+    displayScore = document.createElement("div");
+    displayScore.style.background = "red";
+    container.appendChild(displayScore);
 
 
     function getPlayerChoice() {
@@ -63,9 +72,11 @@
     }
 
     function playRound(playerSelection, computerSelection) {
-      // console.log(`You chose ${playerSelection} and computer chose ${computerSelection}!`)
       winner = determineRoundWinner(playerSelection, computerSelection);
-      displayWinner(winner)
+      // displayWinner(winner)
+      updateScore(winner);
+      displayScore.textContent = `Player score: ${player_score}\n Computer score: ${computer_score}`;
+      alert(player_score)
     }
 
     function displayWinner(result) {
@@ -74,9 +85,9 @@
       } else {console.log(result + " won!")}
     }
 
-    function displayScore() {
-      console.log(`Player: ${player_score} \nComputer: ${computer_score}`)
-    }
+    // function displayScore() {
+    //   console.log(`Player: ${player_score} \nComputer: ${computer_score}`)
+    // }
 
     function updateScore(winner) {
       if (winner === 'Player') {
@@ -101,26 +112,31 @@
     }
 
 
-    // function playGame() {
-    //   computer_score = 0
-    //   player_score = 0
+    function playGame() {
+      // computer_score = 0
+      // player_score = 0
 
-    //   for (let round = 1; round <= 1; round++) {
-    //     console.log(`Round ${round}`);
-    //     winner = getPlayerChoice
-    //     // winner = playRound(getPlayerChoice(), getComputerChoice());
-    //     // displayWinner(winner);
-    //     // updateScore(winner)
-    //     // displayScore()
-    //   }
+      getPlayerChoice()
+
+      // for (let round = 1; round <= 1; round++) {
+        // console.log(`Round ${round}`);
+        // winner = getPlayerChoice
+        // winner = playRound(getPlayerChoice(), getComputerChoice());
+        // displayWinner(winner);
+        // updateScore(winner)
+        // displayScore()
+      // }
 
     //   // game_winner = determineGameWinner()
     //   // displayGameWinner(game_winner)
-    // }
+    }
 
-    // playGame()
+
 
     getPlayerChoice()
+
+
+
 
 
   <!-- </script> -->

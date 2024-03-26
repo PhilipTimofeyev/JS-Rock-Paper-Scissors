@@ -8,12 +8,15 @@
 
     function getPlayerChoice() {
       btnRock.addEventListener('click', () => {
+        console.log("Player chose rock!")
         playRound('rock', getComputerChoice())
       })
       btnPaper.addEventListener('click', () => {
+        console.log("Player chose paper!")
         playRound('paper', getComputerChoice())
       })
       btnScissors.addEventListener('click', () => {
+        console.log("Player chose scissors!")
         playRound('scissors', getComputerChoice())
       })
     }
@@ -23,10 +26,13 @@
 
       switch (choice) {
       case 1:
+        console.log("Computer chose rock!")
         return "rock";
       case 2:
+        console.log("Computer chose paper!")
         return "paper";
       case 3:
+        console.log("Computer chose scissors!")
         return "scissors";
       }
     }
@@ -101,15 +107,15 @@
 
     //   for (let round = 1; round <= 1; round++) {
     //     console.log(`Round ${round}`);
-    //     // winner = getPlayerChoice
-    //     winner = playRound(getPlayerChoice(), getComputerChoice());
-    //     displayWinner(winner);
-    //     updateScore(winner)
-    //     displayScore()
+    //     winner = getPlayerChoice
+    //     // winner = playRound(getPlayerChoice(), getComputerChoice());
+    //     // displayWinner(winner);
+    //     // updateScore(winner)
+    //     // displayScore()
     //   }
 
-    //   game_winner = determineGameWinner()
-    //   displayGameWinner(game_winner)
+    //   // game_winner = determineGameWinner()
+    //   // displayGameWinner(game_winner)
     // }
 
     // playGame()

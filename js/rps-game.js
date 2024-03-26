@@ -11,9 +11,11 @@
     const btnScissors = document.querySelector("#scissors");
 
     displayScore = document.createElement("div");
-    displayScore.style.background = "red";
+    displayScore.textContent = `Player score: ${player_score}\n Computer score: ${computer_score}`;
     container.appendChild(displayScore);
 
+    displayRoundWinner = document.createElement("div");
+    container.appendChild(displayRoundWinner);
 
     function getPlayerChoice() {
       btnRock.addEventListener('click', () => {
@@ -73,16 +75,15 @@
 
     function playRound(playerSelection, computerSelection) {
       winner = determineRoundWinner(playerSelection, computerSelection);
-      // displayWinner(winner)
+      displayRoundWinner.textContent = displayWinner(winner);
       updateScore(winner);
       displayScore.textContent = `Player score: ${player_score}\n Computer score: ${computer_score}`;
-      alert(player_score)
     }
 
     function displayWinner(result) {
       if (result === "Draw") {
-        console.log(result + "!")
-      } else {console.log(result + " won!")}
+        return(result + "!")
+      } else {return (result + " won the round!")}
     }
 
     // function displayScore() {
@@ -113,8 +114,6 @@
 
 
     function playGame() {
-      // computer_score = 0
-      // player_score = 0
 
       getPlayerChoice()
 

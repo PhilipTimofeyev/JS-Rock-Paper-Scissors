@@ -1,7 +1,7 @@
 
   <!-- <script> -->
 
-    playTo = 3
+    playTo = 5
     computer_score = 0
     player_score = 0
 
@@ -16,7 +16,6 @@
     const c_selection = document.querySelector(".c_selection");
 
     const displayScore = document.querySelector(".score");
-    displayScore.textContent = displayAllScore();
 
     const displayWinner = document.querySelector(".winner");
 
@@ -146,6 +145,8 @@
         computer_score = 0
 
         displayScore.textContent = displayAllScore();
+        p_selection.textContent = "Player chooses..";
+        c_selection.textContent = "Computer chooses..";
       }
 
     getPlayerChoice()

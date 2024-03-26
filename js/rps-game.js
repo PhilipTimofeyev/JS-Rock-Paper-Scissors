@@ -6,6 +6,7 @@
     player_score = 0
 
     const container = document.querySelector(".container");
+    const options = document.querySelector(".options");
     
     const btnRock = document.querySelector("#rock");
     const btnPaper = document.querySelector("#paper");
@@ -18,6 +19,9 @@
     displayScore.textContent = displayAllScore();
 
     const displayWinner = document.querySelector(".winner");
+
+    btnPlayAgain = document.createElement('button')
+    btnPlayAgain.textContent = 'Play Again?'
 
 
     function getPlayerChoice() {
@@ -88,6 +92,7 @@
       displayScore.textContent = displayAllScore();
 
       displayGameWinner(determineGameWinner())
+      playAgain()
     }
 
     function updateScore(winner) {
@@ -109,6 +114,24 @@
     function displayGameWinner(winner) {
       if (player_score == playTo || computer_score == playTo) {
         displayWinner.textContent = (`${winner} wins the game!`);
+      }
+    }
+
+    function playAgain() {
+      options.insertBefore(btnPlayAgain, btnRock)
+      options.removeChild(btnRock)
+      options.removeChild(btnPaper)
+      options.removeChild(btnScissors)
+
+      btnPlayAgain.addEventListener('click', () => {
+        resetGame()
+      })
+
+      function resetGame() {
+        options.appendChild(btnRock);
+        options.appendChild(btnPaper);
+        options.appendChild(btnScissors);
+        options.removeChild(btnPlayAgain)
       }
     }
 

@@ -15,9 +15,10 @@
     const c_selection = document.querySelector(".c_selection");
 
     const displayScore = document.querySelector(".score");
-    displayScore.textContent = `Player score: ${player_score} Computer score: ${computer_score}`;
+    displayScore.textContent = displayAllScore();
 
     const displayWinner = document.querySelector(".winner");
+
 
     function getPlayerChoice() {
       btnRock.addEventListener('click', () => {
@@ -71,30 +72,22 @@
         return "Player"
       } else if (player === "scissors" && computer === "rock") {
         return "Computer"
-      } else { return "NOOO"}
+      }
     }
 
-    function playRound(playerSelection, computerSelection) {
-      winner = determineRoundWinner(playerSelection, computerSelection);
-      displayWinner.textContent = roundWinner(winner);
-      updateScore(winner);
-      displayScore.textContent = displayAllScore();
-
-      displayGameWinner(determineGameWinner())
-    }
-
-    function determineGameWinner() {
-      return player_score == playTo ? 'Player' : 'Computer'
-    }
-
-    function roundWinner(result) {
+    function displayRoundWinner(result) {
       if (result === "Draw") {
         return(result + "!")
       } else {return (result + " won the round!")}
     }
 
-    function displayAllScore() {
-      return`Player: ${player_score} \nComputer: ${computer_score}`
+    function playRound(playerSelection, computerSelection) {
+      winner = determineRoundWinner(playerSelection, computerSelection);
+      displayWinner.textContent = displayRoundWinner(winner);
+      updateScore(winner);
+      displayScore.textContent = displayAllScore();
+
+      displayGameWinner(determineGameWinner())
     }
 
     function updateScore(winner) {
@@ -103,6 +96,14 @@
       } else if (winner === 'Computer') {
         computer_score += 1
       }
+    }
+
+    function displayAllScore() {
+      return`Player: ${player_score} \nComputer: ${computer_score}`
+    }
+
+    function determineGameWinner() {
+      return player_score == playTo ? 'Player' : 'Computer'
     }
 
     function displayGameWinner(winner) {

@@ -15,8 +15,8 @@
     displayScore.textContent = `Player score: ${player_score} Computer score: ${computer_score}`;
     container.appendChild(displayScore);
 
-    displayRoundWinner = document.createElement("div");
-    container.appendChild(displayRoundWinner);
+    displayWinner = document.createElement("div");
+    container.appendChild(displayWinner);
 
     function getPlayerChoice() {
       btnRock.addEventListener('click', () => {
@@ -76,7 +76,7 @@
 
     function playRound(playerSelection, computerSelection) {
       winner = determineRoundWinner(playerSelection, computerSelection);
-      displayRoundWinner.textContent = RoundWinner(winner);
+      displayWinner.textContent = RoundWinner(winner);
       updateScore(winner);
       displayScore.textContent = displayAllScore();
 
@@ -105,45 +105,13 @@
       }
     }
 
-    // function determineGameWinner() {
-    //   if (computer_score == player_score) {
-    //     return "Draw"
-    //   } else if (computer_score > player_score) {
-    //     return "Computer"
-    //   } else {return "Player"}
-    // }
-
     function displayGameWinner(winner) {
       if (player_score == playTo || computer_score == playTo) {
-        displayRoundWinner.textContent = (`${winner} wins the game!`);
+        displayWinner.textContent = (`${winner} wins the game!`);
       }
     }
 
-
-    function playGame() {
-
-      getPlayerChoice()
-
-      // for (let round = 1; round <= 1; round++) {
-        // console.log(`Round ${round}`);
-        // winner = getPlayerChoice
-        // winner = playRound(getPlayerChoice(), getComputerChoice());
-        // displayWinner(winner);
-        // updateScore(winner)
-        // displayScore()
-      // }
-
-    //   // game_winner = determineGameWinner()
-    //   // displayGameWinner(game_winner)
-    }
-
-
-
     getPlayerChoice()
-
-
-
-
 
   <!-- </script> -->
 

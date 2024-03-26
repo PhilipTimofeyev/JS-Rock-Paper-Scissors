@@ -11,26 +11,25 @@
     const btnPaper = document.querySelector("#paper");
     const btnScissors = document.querySelector("#scissors");
 
-    const selection = document.querySelector(".selection");
-    selection.textContent = " ds";
+    const p_selection = document.querySelector(".p_selection");
+    const c_selection = document.querySelector(".c_selection");
 
     const displayScore = document.querySelector(".score");
     displayScore.textContent = `Player score: ${player_score} Computer score: ${computer_score}`;
 
     const displayWinner = document.querySelector(".winner");
-    displayWinner.textContent = "winner";
 
     function getPlayerChoice() {
       btnRock.addEventListener('click', () => {
-        selection.textContent = "Player chose rock!";
+        p_selection.textContent = "Player chose rock!";
         playRound('rock', getComputerChoice())
       })
       btnPaper.addEventListener('click', () => {
-        selection.textContent = "Player chose paper!";
+        p_selection.textContent = "Player chose paper!";
         playRound('paper', getComputerChoice())
       })
       btnScissors.addEventListener('click', () => {
-        selection.textContent = "Player chose scissors!";
+        p_selection.textContent = "Player chose scissors!";
         playRound('scissors', getComputerChoice())
       })
     }
@@ -40,13 +39,13 @@
 
       switch (choice) {
       case 1:
-        console.log("Computer chose rock!")
+        c_selection.textContent = "Computer chose rock!";
         return "rock";
       case 2:
-        console.log("Computer chose paper!")
+        c_selection.textContent = "Computer chose paper!";
         return "paper";
       case 3:
-        console.log("Computer chose scissors!")
+        c_selection.textContent = "Computer chose scissors!";
         return "scissors";
       }
     }

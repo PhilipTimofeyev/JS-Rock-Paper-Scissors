@@ -11,24 +11,26 @@
     const btnPaper = document.querySelector("#paper");
     const btnScissors = document.querySelector("#scissors");
 
-    displayScore = document.createElement("div");
-    displayScore.textContent = `Player score: ${player_score} Computer score: ${computer_score}`;
-    container.appendChild(displayScore);
+    const selection = document.querySelector(".selection");
+    selection.textContent = " ds";
 
-    displayWinner = document.createElement("div");
-    container.appendChild(displayWinner);
+    const displayScore = document.querySelector(".score");
+    displayScore.textContent = `Player score: ${player_score} Computer score: ${computer_score}`;
+
+    const displayWinner = document.querySelector(".winner");
+    displayWinner.textContent = "winner";
 
     function getPlayerChoice() {
       btnRock.addEventListener('click', () => {
-        console.log("Player chose rock!")
+        selection.textContent = "Player chose rock!";
         playRound('rock', getComputerChoice())
       })
       btnPaper.addEventListener('click', () => {
-        console.log("Player chose paper!")
+        selection.textContent = "Player chose paper!";
         playRound('paper', getComputerChoice())
       })
       btnScissors.addEventListener('click', () => {
-        console.log("Player chose scissors!")
+        selection.textContent = "Player chose scissors!";
         playRound('scissors', getComputerChoice())
       })
     }
@@ -56,7 +58,6 @@
     }
 
     function determineRoundWinner(player, computer) {
-      console.log(computer)
       if (player === computer) {
         return "Draw"
       } else if (player === "rock" && computer === "paper") {
@@ -76,7 +77,7 @@
 
     function playRound(playerSelection, computerSelection) {
       winner = determineRoundWinner(playerSelection, computerSelection);
-      displayWinner.textContent = RoundWinner(winner);
+      displayWinner.textContent = roundWinner(winner);
       updateScore(winner);
       displayScore.textContent = displayAllScore();
 
@@ -87,7 +88,7 @@
       return player_score == playTo ? 'Player' : 'Computer'
     }
 
-    function RoundWinner(result) {
+    function roundWinner(result) {
       if (result === "Draw") {
         return(result + "!")
       } else {return (result + " won the round!")}

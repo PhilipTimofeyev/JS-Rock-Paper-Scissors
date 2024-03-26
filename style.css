@@ -1,8 +1,18 @@
 
+* {
+	background: #ccd6e6;
+}
+
 h1 {
 	font-size: 80px;
 	text-align: center;
 	margin-bottom: 100px;
+}
+
+.heading {
+	display: flex;
+	justify-content: space-evenly;
+	margin: 0px 5%;
 }
 
 .container {
@@ -16,7 +26,9 @@ h1 {
 .options {
 	margin: 20px;
 	display: flex;
-	gap: 80px;
+	gap: 240px;
+	height: 200px;
+	margin-bottom: 130px;
 }
 
 .display {
@@ -31,19 +43,22 @@ h1 {
 	flex-direction: column;
 	align-items: center;
 	gap: 20px;
-	margin-bottom: 50px;
+	margin-bottom: 100px;
 }
 
-.score {
+.winner {
 	font-size: 60px;
 	margin-top: 40px;
 }
 
 button {
-	/*	font-size: 40px;*/
+	font-size: 40px;
 	border: none;
 	border: 2px solid #AD235E;
 	border-radius: 100px;
+	width: 500px;
+	padding: 20px;
+	font-family: "Comfortaa", sans-serif;
 }
 
 #rock {

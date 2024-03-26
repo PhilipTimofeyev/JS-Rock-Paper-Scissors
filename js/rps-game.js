@@ -1,6 +1,7 @@
 
   <!-- <script> -->
 
+    playTo = 3
     computer_score = 0
     player_score = 0
 
@@ -11,7 +12,7 @@
     const btnScissors = document.querySelector("#scissors");
 
     displayScore = document.createElement("div");
-    displayScore.textContent = `Player score: ${player_score}\n Computer score: ${computer_score}`;
+    displayScore.textContent = `Player score: ${player_score} Computer score: ${computer_score}`;
     container.appendChild(displayScore);
 
     displayRoundWinner = document.createElement("div");
@@ -75,20 +76,26 @@
 
     function playRound(playerSelection, computerSelection) {
       winner = determineRoundWinner(playerSelection, computerSelection);
-      displayRoundWinner.textContent = displayWinner(winner);
+      displayRoundWinner.textContent = RoundWinner(winner);
       updateScore(winner);
-      displayScore.textContent = `Player score: ${player_score}\n Computer score: ${computer_score}`;
+      displayScore.textContent = displayAllScore();
+
+      displayGameWinner(determineGameWinner())
     }
 
-    function displayWinner(result) {
+    function determineGameWinner() {
+      return player_score == playTo ? 'Player' : 'Computer'
+    }
+
+    function RoundWinner(result) {
       if (result === "Draw") {
         return(result + "!")
       } else {return (result + " won the round!")}
     }
 
-    // function displayScore() {
-    //   console.log(`Player: ${player_score} \nComputer: ${computer_score}`)
-    // }
+    function displayAllScore() {
+      return`Player: ${player_score} \nComputer: ${computer_score}`
+    }
 
     function updateScore(winner) {
       if (winner === 'Player') {
@@ -98,18 +105,18 @@
       }
     }
 
-    function determineGameWinner() {
-      if (computer_score == player_score) {
-        return "Draw"
-      } else if (computer_score > player_score) {
-        return "Computer"
-      } else {return "Player"}
-    }
+    // function determineGameWinner() {
+    //   if (computer_score == player_score) {
+    //     return "Draw"
+    //   } else if (computer_score > player_score) {
+    //     return "Computer"
+    //   } else {return "Player"}
+    // }
 
     function displayGameWinner(winner) {
-      if (winner === "Draw") {
-        console.log(`${winner}!`)
-      } else {console.log(`${winner} wins the game!`)}
+      if (player_score == playTo || computer_score == playTo) {
+        displayRoundWinner.textContent = (`${winner} wins the game!`);
+      }
     }
 
 

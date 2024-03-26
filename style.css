@@ -10,8 +10,11 @@ h1 {
 }
 
 button {
-/*	font-size: 40px;*/
-border: none;
+	/*	font-size: 40px;*/
+	border: none;
+	border: 2px solid #AD235E;
+	border-radius: 100px;
+
 
 }
 
@@ -19,7 +22,21 @@ border: none;
 	background: url(./images/rock.jpg) no-repeat;
 	width: 300px;
 	height: 300px;
-	background-size: contain;
+	background-size: cover;
+}
+
+#paper {
+	background: url(./images/paper.jpg) no-repeat;
+	width: 300px;
+	height: 300px;
+	background-size: cover;
+}
+
+#scissors {
+	background: url(./images/scissors.jpg) no-repeat;
+	width: 300px;
+	height: 300px;
+	background-size: cover;
 }
 
 .container {

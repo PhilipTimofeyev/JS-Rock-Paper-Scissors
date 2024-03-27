@@ -90,8 +90,6 @@
       updateScore(winner);
       displayScore.textContent = displayAllScore();
 
-      console.log(determineGameWinner())
-
       if (determineGameWinner()) {
         displayGameWinner(determineGameWinner());
         playAgain()
@@ -115,7 +113,7 @@
         return 'Player'
       } else if (computer_score == playTo) {
         return 'Computer'
-      } else {null}
+      }
     }
 
     function displayGameWinner(winner) {
@@ -147,6 +145,7 @@
         displayScore.textContent = displayAllScore();
         p_selection.textContent = "Player chooses..";
         c_selection.textContent = "Computer chooses..";
+        displayWinner.textContent = (``);
       }
 
     getPlayerChoice()
